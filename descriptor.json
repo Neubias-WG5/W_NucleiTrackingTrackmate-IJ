@@ -1,0 +1,122 @@
+{
+    "name": "NucleiTrackingTrackmate-IJ",
+    "container-image": {
+        "image": "neubiaswg5/w_nucleitrackingtrackmate-ij",
+        "type": "singularity"
+    },
+    "schema-version": "cytomine-0.1",
+    "description": "Use Trackmate to track non dividing nuclei in a 2D time-lapse",
+    "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE RAD THR DST GAPDST GAP MINLGTH",
+    "inputs": [
+        {
+            "id": "cytomine_host",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine host",
+            "description": "Cytomine server hostname",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_public_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine public key",
+            "description": "Cytomine public key",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_private_key",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine private key",
+            "description": "Cytomine private key",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_id_project",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine project id",
+            "description": "Cytomine project id",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "cytomine_id_software",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Cytomine software id",
+            "description": "Cytomine software id",
+            "type": "String",
+            "optional": false,
+            "set-by-server": true
+        },
+        {
+            "id": "rad",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Radius",
+            "description": "Radius for LOG filter",
+            "type": "Number",
+            "default-value": 15,
+            "optional": true
+        },
+        {
+            "id": "thr",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Threshold",
+            "description": "Particle detection threshold",
+            "type": "Number",
+            "default-value": 0.1,
+            "optional": true
+        },
+	{
+            "id": "dst",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Linking distance",
+            "description": "Maximum distance to link a particle between two consecutive frames",
+            "type": "Number",
+            "default-value": 25,
+            "optional": true
+        },
+	{
+            "id": "gapdst",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Gap distance",
+            "description": "Maximum distance to re-link a particle that was lost",
+            "type": "Number",
+            "default-value": 35,
+            "optional": true
+        },
+	{
+            "id": "gap",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Maximum gap",
+            "description": "Maximum number of frames of a gap to recover a lost particle",
+            "type": "Number",
+            "default-value": 2,
+            "optional": true
+        },
+	{
+            "id": "minlgth",
+            "value-key": "@ID",
+            "command-line-flag": "--@id",
+            "name": "Minimum track duration",
+            "description": "Minimum duration of a track (number of frames)",
+            "type": "Number",
+            "default-value": 3,
+            "optional": true
+        }
+    ]
+}
