@@ -21,7 +21,7 @@ def main(argv):
         return_code = call(command, shell=True, cwd="/fiji")  # waits for the subprocess to return
 
         if return_code != 0:
-            err_desc = "Failed to execute the ImageJ macro (return code: {})".format(return_code)
+            err_desc = "Failed to execute the ImageJ script (return code: {})".format(return_code)
             nj.job.update(progress=100, statusComment=err_desc)
             raise ValueError(err_desc)
 
