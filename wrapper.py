@@ -14,10 +14,8 @@ def main(argv):
 
         # 2. Call the image analysis workflow
         nj.job.update(progress=25, statusComment="Launching workflow...")
-        command = "/usr/bin/xvfb-run ./ImageJ-linux64 --ij2 --headless --console --run Trackmate_script.py" \
-					"\"input={}, output={}, rad={}, thr={}, dst={}, gapdst={}, gap={}, minlgth={}\"".format(
-            in_path, out_path, nj.parameters.rad, nj.parameters.thr, nj.parameters.dst, nj.parameters.gapdst, nj.parameters.gap, nj.parameters.minlgth)
-
+        command = './ImageJ-linux64 --ij2 --headless --console --run "Trackmate_script.py" input="{}",output="{}",rad="{}",thr="{}",dst="{}",gapdst="{}",gap="{}",minlgth="{}"'\
+	.format(in_path, out_path, nj.parameters.rad, nj.parameters.thr, nj.parameters.dst, nj.parameters.gapdst, nj.parameters.gap, nj.parameters.minlgth)	
         return_code = call(command, shell=True, cwd="/fiji")  # waits for the subprocess to return
 
         if return_code != 0:
