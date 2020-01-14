@@ -6,7 +6,7 @@
     },
     "schema-version": "cytomine-0.1",
     "description": "Use Trackmate to track non dividing nuclei in a 2D time-lapse",
-    "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE RAD THR DST GAPDST GAP MINLGTH",
+    "command-line": "python wrapper.py CYTOMINE_HOST CYTOMINE_PUBLIC_KEY CYTOMINE_PRIVATE_KEY CYTOMINE_ID_PROJECT CYTOMINE_ID_SOFTWARE RAD THR DST GAPDST GAP MINLGTH ",
     "inputs": [
         {
             "id": "cytomine_host",
