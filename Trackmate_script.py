@@ -77,3 +77,5 @@ for root, directories, filenames in os.walk(inDir):
 		exportTracksOnly = True
 		lblImg = LabelImgExporter.createLabelImagePlus( trackmate, exportSpotsAsDots, exportTracksOnly )
 		IJ.saveAs(lblImg, "Tiff", os.path.join(outDir, filename));
+		
+IJ.run("Quit");
