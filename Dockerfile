@@ -29,7 +29,7 @@ RUN rm -r /neubiaswg5-utilities
 RUN apt-get update && apt-get install -y unzip xvfb libx11-dev libxtst-dev libxrender-dev
 
 # Install Fiji.
-RUN wget --no-check-certificate 'https://drive.google.com/uc?export=download&id=12pmAPp4bvxYOMD8Df-pZ85KGEC2gZdGl' -O Trackmate_5_2_0.zip
+RUN wget --no-check-certificate 'https://www.dropbox.com/s/b5jq7d87f0ubolr/Fiji.app_Trackmate_5_2_0.zip?dl=1'
 RUN unzip Fiji.app_Trackmate_5_2_0.zip
 RUN mv Fiji.app/ fiji
 
