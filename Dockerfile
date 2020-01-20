@@ -27,10 +27,8 @@ RUN rm -r /neubiaswg5-utilities
 # Install FIJI
 # Install virtual X server
 RUN apt-get update && apt-get install -y unzip xvfb libx11-dev libxtst-dev libxrender-dev
-
-# Install Fiji.
-RUN wget --no-check-certificate 'https://www.dropbox.com/s/b5jq7d87f0ubolr/Fiji.app_Trackmate_5_2_0.zip?dl=1'
-RUN unzip Fiji.app_Trackmate_5_2_0.zip
+RUN wget https://downloads.imagej.net/fiji/archive/20191220-2112/fiji-linux64.zip
+RUN unzip fiji-linux64.zip
 RUN mv Fiji.app/ fiji
 
 # create a sym-link with the name jars/ij.jar that is pointing to the current version jars/ij-1.nm.jar
@@ -42,7 +40,7 @@ ENV PATH $PATH:/fiji
 RUN mkdir -p /fiji/data
 
 # Clean up
-RUN rm fiji-linux64-20170530.zip
+RUN rm fiji-linux64.zip
 
 # ---------------------------------------------------------------------------------------------------------------------
 # ImageJ plugin
@@ -54,7 +52,12 @@ RUN cd /fiji/plugins && \
 RUN cd /fiji/plugins && \
     wget -O FeatureJ_.jar \
     https://imagescience.org/meijering/software/download/FeatureJ_.jar
-	
+
+RUN cd /fiji/plugins && \
+	find . -name '*TrackMate*' -delete && \
+    wget -O Trackmate_-5.2.0.jar \
+	https://github.com/fiji/TrackMate/releases/tag/TrackMate_-5.2.0
+
 # ---------------------------------------------------------------------------------------------------------------------
 # add the local files
 ADD Trackmate_script.py /fiji/macros/Trackmate_script.py
