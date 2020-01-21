@@ -17,7 +17,7 @@ from  fiji.plugin.trackmate.action import LabelImgExporter
 #@Float rad
 #@Float thr 
 #@Float dst
-#@Float gapdst
+#@Float gds
 #@Float gap
 #@Float minlgth
 #@String inDir
@@ -26,9 +26,9 @@ from  fiji.plugin.trackmate.action import LabelImgExporter
 rad = float(rad)			#15
 thr = float(thr)			#0.1
 dst = float(dst)			#25
-gapdst = float(gapdst)		#35
+gds = float(gds)			#35
 gap = int(gap)				#2
-minlgth = float(minlgth)	#3
+minlgth = float(minlgth)		#3
 #inDir = 'C:\Users\stosi\Desktop\in'
 #outDir = 'C:\Users\stosi\Desktop\out'
 
@@ -58,7 +58,7 @@ for root, directories, filenames in os.walk(inDir):
 		settings.trackerSettings['ALLOW_TRACK_SPLITTING'] = False
 		settings.trackerSettings['ALLOW_TRACK_MERGING'] = False
 		settings.trackerSettings['LINKING_MAX_DISTANCE'] = dst
-		settings.trackerSettings['GAP_CLOSING_MAX_DISTANCE'] = gapdst
+		settings.trackerSettings['GAP_CLOSING_MAX_DISTANCE'] = gds
 		settings.trackerSettings['MAX_FRAME_GAP']= gap
 		settings.addTrackAnalyzer(TrackDurationAnalyzer())
 		filter2 = FeatureFilter('DURATION_OF_TRACK', minlgth, True)
