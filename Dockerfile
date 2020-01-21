@@ -54,7 +54,7 @@ RUN cd /fiji/plugins && \
     https://imagescience.org/meijering/software/download/FeatureJ_.jar
 
 RUN cd /fiji/plugins && \
-    find . -name '*TrackMate*' -delete && \
+    find . -name '*TrackMate*' -delete
     
 RUN cd /fiji/plugins && \
     wget https://maven.scijava.org/service/local/repositories/releases/content/sc/fiji/TrackMate_/5.2.0/TrackMate_-5.2.0.jar
