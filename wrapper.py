@@ -13,10 +13,10 @@ def main(argv):
         in_images, gt_images, in_path, gt_path, out_path, tmp_path = prepare_data(problem_cls, nj, is_2d=is_2d, **nj.flags)
 
         # 2. Call the image analysis workflow
-        nj.job.update(progress=25, statusComment="Launching workflow...")
-        command = "/usr/bin/xvfb-run ./ImageJ-linux64 --ij2 --headless --console --run /fiji/macros/Trackmate_script.py \"inDir={},outDir={},rad={},thr={},dst={},gds={},gap={},minlgth={}\"" \
-  		.format(in_path, out_path, nj.parameters.rad, nj.parameters.thr, nj.parameters.dst, nj.parameters.gds, nj.parameters.gap, nj.parameters.minlgth)	
-        return_code = call(command, shell=True, cwd="/fiji")  # waits for the subprocess to return
+        nj.job.update(progress=25, statusComment="Launching workflow...")     
+	command = "/usr/bin/xvfb-run java -Xmx6000m -cp /fiji/jars/ij.jar ij.ImageJ --ij2 --headless --console --run " \
+                  "/fiji/macros/Trackmate_script.py \"inDir={},outDir={},rad={},thr={},dst={},gds={},gap={},minlgth={}\"".format(in_path, out_path, nj.parameters.rad, nj.parameters.thr, nj.parameters.dst, nj.parameters.gds, nj.parameters.gap, nj.parameters.minlgth)
+	return_code = call(command, shell=True, cwd="/fiji")  # waits for the subprocess to return
 	
         if return_code != 0:
             err_desc = "Failed to execute the ImageJ script (return code: {})".format(return_code)
