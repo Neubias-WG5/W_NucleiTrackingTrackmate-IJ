@@ -1,11 +1,11 @@
 import sys
 from cytomine.models import Job
 from subprocess import call
-from neubiaswg5 import CLASS_PRTTRK
-from neubiaswg5.helpers import NeubiasJob, prepare_data, upload_data, upload_metrics
+from biaflows import CLASS_PRTTRK
+from biaflows.helpers import BiaflowsJob, prepare_data, upload_data, upload_metrics
 
 def main(argv):
-    with NeubiasJob.from_cli(argv) as nj:
+    with BiaflowsJob.from_cli(argv) as nj:
         problem_cls = CLASS_PRTTRK
         is_2d = False
 
