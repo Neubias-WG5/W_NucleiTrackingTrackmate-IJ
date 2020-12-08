@@ -27,8 +27,8 @@ RUN rm -r /biaflows-utilities
 # Install FIJI
 # Install virtual X server
 RUN apt-get update && apt-get install -y unzip xvfb libx11-dev libxtst-dev libxrender-dev
-RUN wget https://downloads.imagej.net/fiji/archive/20191220-2112/fiji-linux64.zip
-RUN unzip fiji-linux64.zip
+RUN wget https://downloads.imagej.net/fiji/Life-Line/fiji-linux64-20170530.zip
+RUN unzip fiji-linux64-20170530.zip
 RUN mv Fiji.app/ fiji
 
 # create a sym-link with the name jars/ij.jar that is pointing to the current version jars/ij-1.nm.jar
@@ -40,7 +40,7 @@ ENV PATH $PATH:/fiji
 RUN mkdir -p /fiji/data
 
 # Clean up
-RUN rm fiji-linux64.zip
+RUN rm fiji-linux64-20170530.zip
 
 # ---------------------------------------------------------------------------------------------------------------------
 # ImageJ plugin
